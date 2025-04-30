@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+<div class="products_detail">
+   <div class="product_data_detail">
+    {% for i in all_data %}
+        <div class="product_img_div_details">
+            <div class="product_image_round">
+                <img class="product_images_details"  src="{{ i.p_images.url }}" alt="">
+            </div>
+        </div>
+        <div class="product_info_div_details">
+            <h2 class="product_category_detail">Category:{{i.category}}</h2>
+            <h3 class="product_name_detail"> Product:{{i.name}}</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odio recusandae officiis eius, nam quia adipisci eos? Officiis reiciendis nihil vero aut dolorem accusantium iusto rem esse cupiditate. Pariatur, fuga corporis. Deserunt tenetur omnis rem, error consequatur aliquid. Tenetur incidunt alias id quis ex reiciendis, laudantium, iste ducimus est facilis aliquam. Sint, sed dolorum quis quisquam libero ratione ut minima! Dolor fugit aliquam odio cupiditate ullam a fugiat, mollitia esse alias molestiae assumenda in nobis vitae minima nisi iusto architecto provident ea nemo pariatur necessitatibus dolores veniam error! Nemo odio, blanditiis accusamus dolore, consequuntur, in fugiat laboriosam eveniet officiis dolorum maxime.</p><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius aspernatur quibusdam corrupti totam tempore recusandae veniam sed nemo eum, tenetur eligendi dolor, optio maxime doloribus eaque quae quis, explicabo neque exercitationem voluptates repudiandae sit. Suscipit provident voluptatem, fugit odit exercitationem incidunt iusto sint velit doloremque eveniet voluptatum voluptate sequi esse nemo consectetur expedita quae natus omnis maxime dolorem. Perferendis temporibus veritatis nobis earum nemo deleniti aliquid illum dolorem, magnam dolorum cumque rerum expedita necessitatibus minus iusto hic cum architecto voluptatum commodi iure, modi fuga voluptas ratione. Doloremque culpa, sunt dolore praesentium cumque non quisquam quae, vel necessitatibus et iusto tenetur?</p>
+            <h4 class="product_price_detail">
+                <i class="fa-duotone fa-solid fa-indian-rupee-sign"></i> {{ i.price }}
+            </h4>
+            <div class="product_details_btn_root">
+                <a class="addtocart_btn_details" href="{% url "addtocart" i.id %}">Add to cart</a>
+                <a class="addtocart_btn_details_back" href="{% url "home" %}">Back</a>
+            </div>
+        </div>
+    {% endfor %}
+      
+   </div>
+</div>
+{% endblock content %}
+
+
+

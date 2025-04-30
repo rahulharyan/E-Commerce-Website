@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+{% block content %}
+<center>
+    <h2 class="profile_heading">Profile</h2>
+
+    <div class="profile_container">
+        <img class="profile_pic" src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="Profile Picture">
+
+        <table class="profile_table">
+            <tr>
+                <th>Name</th>
+                <td>{{request.user.first_name}} {{request.user.last_name}}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{request.user.email}}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{request.user.username}}</td>
+            </tr>
+        </table>
+
+        <div class="profile_buttons">
+            <a class="profile_update_button" href="">Update Profile</a>
+            <a class="change_password_button_profile" href="{% url 'changepassword_' %}">Change Password</a>
+        </div>
+    </div>
+</center>
+{% endblock content %}

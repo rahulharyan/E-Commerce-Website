@@ -1,0 +1,45 @@
+<nav class="nav_bar">
+    <div class="logo">
+        <h2>ShopSphere</h2>
+    </div>
+    <div class="links">
+        {% if request.user.is_authenticated %}
+
+
+            {% if cart_nav %}
+
+                <a class="link_a3" href="{% url "home" %}">Home</a>
+                <a class="link_a9" href="{% url "profile"  %}">Profile({{request.user.first_name}})</a>
+                <a class="link_a10"  href="{% url "logout_" %}">Logout</a>
+            {% else %}
+
+            <form action="" class="search-form">
+                <input type="text" name="q" placeholder="Search..." class="search-box">
+                <input type="submit" value="Search" class="btn">
+            </form>
+
+
+                <a class="link_a3" href="{% url "home" %}">Home</a>
+                <a class="link_a6" href="{% url "cart" %}">Cart({{count_}})</a>
+                <a class="link_a9" href="{% url "profile"  %}">Profile({{request.user.first_name}})</a>
+                <a class="link_a10"  href="{% url "logout_" %}">Logout</a>
+                {% endif %}
+
+        {% else %}
+
+            {% if login_nav %}
+
+            <a class="link_a3" href="{% url "home" %}">Home</a>
+            <a class="link_a4" href="{% url "login_" %}">Login</a>
+            <a class="link_a5" href="{% url "Register" %}">Register</a>
+
+            {% else %}
+
+                <a class="link_a3" href="{% url "home" %}">Home</a>
+                <a class="link_a4" href="{% url "login_" %}">Login</a>
+                <a class="link_a7" href="">Know us</a>
+                <a class="link_a8" href="{% url 'support' %}">Support</a>
+            {% endif %}
+        {% endif %}
+    </div>
+</nav>

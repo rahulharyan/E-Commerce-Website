@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+{% block content %}
+
+ <div class="subnav">
+        <form action="">
+            <input type="submit" name="t" value="TRENDING" class="btn">
+        </form>
+        <form action="">
+            <input type="submit" name="offer" value="OFFER"  class="btn">
+        </form>
+        {% for i in cat %}
+            <form action="">
+                <input type="submit" name="cat_form" value="{{i|upper}}" class="btn">
+            </form>
+        {% endfor %}
+</div>
+    <div class="products">
+        {% if i in cat %}
+            <h2>{{i.name}}</h2>
+        {% endif %}
+
+        {% for i in all_data %}
+       <div class="product_data">
+
+            {% if trend %}
+                <h4>Trending 🔥</h4>
+            {% endif %}
+
+            {% if offer %}
+                <h4>Discount up to 30%</h4>
+            {% endif %}
+
+            <img class="product_images"  src="{{ i.p_images.url }}" alt="">
+            <h4 class="product_category_home">{{i.category}}</h4>
+            <h4 class="product_name_home"> {{i.name}}</h4>
+            {% comment %} <h2 class="product_desc_home">{{i.desc}}</h2> {% endcomment %}
+            <h4 class="product_price_home">
+                <i class="fa-duotone fa-solid fa-indian-rupee-sign"></i> {{ i.price }}
+              </h4>
+            <div class="product_details_btn">
+                <a class="addtocart_btn" href="{% url "addtocart" i.id %}">Add to cart</a>
+                <a class="product_detail_btn_home" href="{% url "details" i.id %}">detail</a>
+            </div>
+       </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

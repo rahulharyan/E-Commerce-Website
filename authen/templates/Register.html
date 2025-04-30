@@ -1,0 +1,46 @@
+{% extends "main.html" %}
+{% block body_class %}registration-bg{% endblock body_class %}
+{% block content %}
+<center>
+    
+    <div  class="registration_form_center">
+        {% for message in messages %}
+            {{message}}
+        {% endfor %}
+        
+        <form class="Registration_form" action="" method="POST">
+            <div class="form_inside_registration">
+                <h2> Registration Form</h2>
+            {% csrf_token %}
+            <label for="">Firstname</label>
+            <br>
+            <input type="text" name="firstname">
+            <br>
+    
+            <label for="">lastname</label>
+            <br>
+            <input type="text" name="lastname">
+            <br>
+    
+            <label for="">email</label>
+            <br>
+            <input type="text" name="email">
+            <br>
+    
+            <label for="">username</label>
+            <br>
+            <input type="text" name="username" required>
+            <br>
+    
+            <label for="">password</label>
+            <br>
+            <input type="text" name="password" required>
+            <br>
+            <input type="submit" value="Register">
+            </div>
+            
+        </form>
+    </div>
+    
+</center>
+{% endblock content %}

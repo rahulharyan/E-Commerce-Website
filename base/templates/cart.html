@@ -1,0 +1,47 @@
+{% extends "main.html" %}
+{% block content %}
+<center>
+    {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}} alert-dismissible fade shoe" role="alert">
+                    {{message}}
+                    <button type="message" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+        </div>
+    {% endif %}
+    <h2>cart</h2>
+    <table class="cart_table" >
+        <thead>
+            <tr>
+                <td>sr no</td>
+                <td>categery</td>
+                <td>name</td>
+                <td>price</td>
+                <td>quantity</td>
+                <td>totoal price</td>
+                <td>remove product</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in cart_data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{i.category}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.price}}</td>
+                    <td>{{i.p_quantity}}</td>
+                    <td>{{i.totalamount}}</td>
+                    <td><a class="cart_remove_button" href="{% url 'remove' i.id %}">Remove</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="cart_down_buttons">
+        <a class="total_amounth_cart" href="">Totoal Amounth: {{Totalpay}}</a>
+        <a class="checkout_cart_button" href="">Checkout</a>
+        <a class="Continue_Shopping_button" href="{% url 'home' %}">Continue Shopping</a>
+    </div>
+</center>
+{% endblock content %}
